@@ -27,13 +27,13 @@ It includes a dashboard, add movie form, and display page to view all movies.
 ## 📸 Project Screenshots
 
 ### 🏠 Dashboard
-![Dashboard](images/dashboard.png)
+![Dashboard](movie-dashboard.png)
 
 ### ➕ Add Movie Page
-![Add Movie](images/add_movie.png)
+![Add Movie](add-movie.png)
 
 ### 📃 Display Movies Page
-![Display Movies](images/display.png)
+![Display Movies]movie-display.png)
 
 ---
 
