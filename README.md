@@ -39,5 +39,5 @@ It includes a dashboard, add movie form, and display page to view all movies.
 
 ## 🤝 Connect With Me
 
-- 🔗 LinkedIn: [My LinkedIn](https://www.linkedin.com/in/sajjadali-fullstack/)
-- 📧 Email: mailto:sajjadali.dev01@gmail.com
+- 🔗 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sajjadali-fullstack/)
+- 📧 [![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:sajjadali.dev01@gmail.com)
