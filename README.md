@@ -30,10 +30,10 @@ It includes a dashboard, add movie form, and display page to view all movies.
 ![Dashboard](movie-dashboard.png)
 
 ### ➕ Add Movie Page
-![Add Movie](add-movie.png)
+![Add Movie](add-movies.png)
 
 ### 📃 Display Movies Page
-![Display Movies]movie-display.png)
+![Display Movies](movie-display.png)
 
 ---
 
