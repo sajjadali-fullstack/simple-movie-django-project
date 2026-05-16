@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Display</title>
+    <!-- Bootstrap 5 CDN (Yeh add karna zaroori tha buttons aur layouts ke liye) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <style>
+        /* Sticky footer layout fixes */
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            background-color: #f8f9fa;
+            /* Sleek Bootstrap background */
+        }
+
+        /* Smooth transition for upper buttons */
+        .transition-link {
+            transition: all 0.3s ease;
+        }
+
+        .transition-link:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Dev Name Animation: Muted se Blue transition */
+        .dev-name {
+            transition: color 0.4s ease, transform 0.4s ease;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .dev-name:hover {
+            color: #0d6efd !important;
+            /* Bootstrap Primary Blue */
+            transform: scale(1.05);
+        }
+
+        /* GitHub ID Animation: Soft gray se Solid Black transition */
+        .github-id {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .github-id:hover {
+            background-color: #24292e !important;
+            /* GitHub Official Black */
+            color: #ffffff !important;
+            border-color: #24292e !important;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Main Content Wrapper -->
+    <div class="container py-5 flex-shrink-0">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+
+                {% if movie_list %}
+                <!-- Header Section -->
+                <div class="text-center mb-4">
+                    <h1 class="fw-bold text-danger display-5">Movie Details</h1>
+                    <p class="text-muted">List of all movies registered in the database</p>
+                </div>
+
+                <!-- Bootstrap Table Card -->
+                <div class="card shadow-sm border-0 rounded-3 overflow-hidden">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-striped align-middle mb-0 text-center">
+                            <thead class="table-dark text-uppercase fs-7">
+                                <tr>
+                                    <th scope="col" class="py-3">Release Date</th>
+                                    <th scope="col" class="py-3">Movie Name</th>
+                                    <th scope="col" class="py-3">Hero Name</th>
+                                    <th scope="col" class="py-3">Heroine Name</th>
+                                    <th scope="col" class="py-3">Rating 🌟</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for movie in movie_list %}
+                                <tr>
+                                    <td class="fw-medium text-secondary">{{ movie.rdate }}</td>
+                                    <td class="fw-bold text-dark">{{ movie.moviename }}</td>
+                                    <td><span class="badge bg-light text-dark border px-3 py-2">{{ movie.hero }}</span>
+                                    </td>
+                                    <td><span class="badge bg-light text-dark border px-3 py-2">{{ movie.heroin
+                                            }}</span></td>
+                                    <td>
+                                        <span class="badge bg-warning text-dark fw-bold px-2.5 py-1.5">
+                                            {{ movie.rating }} / 5
+                                        </span>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                {% else %}
+                <!-- No Data Alert State -->
+                <div class="text-center my-5 py-5">
+                    <div class="display-1 text-muted mb-3">📂</div>
+                    <h2 class="fw-bold text-secondary">No Data Found</h2>
+                    <p class="text-muted">The movie list is currently empty. Try adding some new entries!</p>
+                </div>
+                {% endif %}
+
+                <!-- Footer Ke Upar Wale Links -->
+                <div class="d-flex gap-3 justify-content-center border-top pt-4 mt-5 mb-2">
+                    <a href="{% url 'home' %}"
+                        class="btn btn-outline-primary btn-sm px-4 rounded-pill shadow-sm transition-link">
+                        🏠 Home
+                    </a>
+                    <a href="{% url 'add' %}"
+                        class="btn btn-primary btn-sm px-4 rounded-pill shadow-sm transition-link">
+                        ➕ Add New Movie
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Footer Section -->
+    <footer class="bg-white border-top py-4 mt-auto">
+        <div class="container text-center">
+            <p class="mb-0 text-muted small">
+                Developed by:
+                
+                <span class="dev-name fw-bold text-dark mx-1">
+                    <a href="https://www.linkedin.com/in/sajjadali-fullstack/" target="_blank">Sajjad Ali</a>
+                </span>
+                |
+                
+                <a href="https://github.com/sajjadali-fullstack" target="_blank"
+                    class="github-id badge bg-light text-dark border ms-1 text-decoration-none">
+                    SajjadAli-FulStack
+                </a>
+            </p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
